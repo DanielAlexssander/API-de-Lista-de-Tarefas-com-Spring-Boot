@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS tarefas_db;
+USE tarefas_db;
+
+CREATE TABLE IF NOT EXISTS tarefas (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    data_entrega DATE NOT NULL,
+    responsavel VARCHAR(255) NOT NULL
+);
