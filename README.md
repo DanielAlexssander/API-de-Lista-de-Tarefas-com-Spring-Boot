@@ -14,20 +14,19 @@ API RESTful para gerenciamento de tarefas desenvolvida em Java com Spring Boot.
 - Java 17
 - Spring Boot 3.2.0
 - Spring Data JPA
-- MySQL
+- H2 Database
 - Maven
 
 ## Pré-requisitos
 1. Java 17 ou superior
 2. Maven 3.6 ou superior
-3. MySQL Server rodando na porta 3306
-4. Banco de dados será criado automaticamente
+3. H2 Database (em memória - não precisa instalar)
 
 ## Como executar
 1. Clone o projeto
-2. Configure o MySQL (usuário: root, senha: root)
-3. Execute: `mvn spring-boot:run`
-4. A aplicação estará disponível em: http://localhost:8080
+2. Execute: `mvn spring-boot:run`
+3. A aplicação estará disponível em: http://localhost:8080
+4. Console H2: http://localhost:8080/h2-console
 
 ## Endpoints da API
 
@@ -35,9 +34,10 @@ API RESTful para gerenciamento de tarefas desenvolvida em Java com Spring Boot.
 **POST** `/api/tarefas`
 ```json
 {
-  "nome": "Nome do Aluno - RU123456",
+  "titulo": "Nome do Aluno - RU123456",
   "dataEntrega": "2024-12-31",
-  "responsavel": "Nome do Aluno"
+  "responsavel": "Nome do Aluno",
+  "feito": false
 }
 ```
 
@@ -51,9 +51,10 @@ API RESTful para gerenciamento de tarefas desenvolvida em Java com Spring Boot.
 **PUT** `/api/tarefas/{id}`
 ```json
 {
-  "nome": "Nome Atualizado - RU123456",
+  "titulo": "Nome Atualizado - RU123456",
   "dataEntrega": "2024-12-31",
-  "responsavel": "Nome Atualizado"
+  "responsavel": "Nome Atualizado",
+  "feito": true
 }
 ```
 
